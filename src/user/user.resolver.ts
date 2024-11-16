@@ -1,13 +1,18 @@
 import { Query, Resolver } from '@nestjs/graphql'
+import { users as User } from '@@/prisma/generated/main'
 import { UserService } from './user.service'
-import { User } from './user.object-type'
+import { User as UserObject } from './user.object-type'
 
 @Resolver()
 export class UserResolver {
-  constructor(private readonly userService: UserService) {}
+  readonly #userService: UserService
 
-  @Query(() => [User], { nullable: 'items' })
-  users(): User[] {
-    return this.userService.getUsers()
+  constructor(userService: UserService) {
+    this.#userService = userService
+  }
+
+  @Query(() => [UserObject], { nullable: 'items' })
+  async users(): Promise<User[]> {
+    return await this.#userService.getUsers()
   }
 }

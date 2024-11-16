@@ -1,19 +1,19 @@
 import 'reflect-metadata'
 import { ObjectType, Field, Int } from '@nestjs/graphql'
 import { IsEmail } from 'class-validator'
-// import { Post } from '../post'
+// import { Post } from '../post/post.object-type'
 
 @ObjectType()
 export class User {
   @Field(() => Int)
-  id: number
+  id!: number
 
   @Field()
   @IsEmail()
-  email: string
+  email!: string
 
   @Field()
-  name: string
+  name!: string
 
   // @Field()
   // posts: [Post]
