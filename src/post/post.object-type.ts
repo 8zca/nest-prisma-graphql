@@ -1,21 +1,21 @@
 import 'reflect-metadata'
 import { ObjectType, Field, Int } from '@nestjs/graphql'
-import { User } from './user/user.object-type'
+import { User } from '../user/user.object-type'
 
 @ObjectType()
 export class Post {
   @Field(() => Int)
-  id: number
+  id!: number
 
   @Field()
-  createdAt: Date
+  createdAt!: Date
 
   @Field()
-  updatedAt: Date
+  updatedAt!: Date
 
   @Field({ nullable: true })
-  body: string | null
+  body!: string | null
 
   @Field()
-  author: User
+  author!: User
 }
