@@ -1,5 +1,5 @@
 import { Injectable, OnModuleInit, Logger } from '@nestjs/common'
-import { PrismaClient } from '@@/prisma/generated/main'
+import { PrismaClient } from 'prisma/generated/main'
 import { readReplicas } from '@prisma/extension-read-replicas'
 
 @Injectable()
