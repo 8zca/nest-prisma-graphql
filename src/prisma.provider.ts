@@ -26,16 +26,18 @@ export class PrismaClientProvider
       datasourceUrl: readDbUrl,
       log: [{ level: 'query', emit: 'event' }],
     })
+    replicaClient.$on('query', (e) => {
+      this.logger.log(e)
+    })
+    this.$on('query' as never, (e) => {
+      this.logger.log(e)
+    })
     return this.$extends(readReplicas({ replicas: [replicaClient] }))
   }
 
   async onModuleInit() {
     await this.$connect()
     this.logger.log('Connected to the database')
-
-    // this.$on('query' as never, (e) => {
-    //   this.logger.log(e)
-    // })
   }
 
   onModuleDestroy() {
