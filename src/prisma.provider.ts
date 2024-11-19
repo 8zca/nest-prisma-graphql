@@ -7,6 +7,7 @@ import {
 import { PrismaClient } from 'prisma/generated/main'
 import { readReplicas } from '@prisma/extension-read-replicas'
 
+// 参考 https://github.com/prisma/prisma/issues/18628#issuecomment-2346910557
 @Injectable()
 export class PrismaClientProvider
   extends PrismaClient
