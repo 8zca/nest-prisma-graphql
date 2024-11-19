@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import { ObjectType, Field, Int } from '@nestjs/graphql'
 import { IsEmail } from 'class-validator'
-// import { Post } from '../post/post.object-type'
+import { Post } from './post.object-type'
 
 @ObjectType()
 export class User {
@@ -15,6 +15,6 @@ export class User {
   @Field()
   name!: string
 
-  // @Field()
-  // posts: [Post]
+  @Field(() => [Post])
+  posts!: [Post]
 }

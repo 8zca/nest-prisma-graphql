@@ -4,7 +4,6 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { join } from 'path'
 import { UserModule } from './user/user.module'
 import { TaskModule } from './task/task.module'
-import { PostModule } from './post/post.module'
 import { PrismaModule } from './prisma.module'
 
 @Module({
@@ -13,11 +12,11 @@ import { PrismaModule } from './prisma.module'
       driver: ApolloDriver,
       playground: true,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      buildSchemaOptions: { dateScalarMode: 'isoDate' },
     }),
     PrismaModule,
     UserModule,
     TaskModule,
-    PostModule,
   ],
 })
 export class AppModule {}
