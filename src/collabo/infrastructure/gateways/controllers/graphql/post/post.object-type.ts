@@ -1,9 +1,8 @@
 import 'reflect-metadata'
 import { ObjectType, Field, Int } from '@nestjs/graphql'
-import { User } from './user.object-type'
 
 @ObjectType()
-export class Post {
+export class PostObjectType {
   @Field(() => Int)
   id!: number
 
@@ -15,7 +14,4 @@ export class Post {
 
   @Field(() => String, { nullable: true })
   body!: string | null
-
-  @Field(() => User)
-  user!: User
 }
