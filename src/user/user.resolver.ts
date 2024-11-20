@@ -18,6 +18,8 @@ export class UserResolver {
     return await this.#userService.getUsers()
   }
 
+  // @ResolverにUserObjectの指定が必要
+  // @ResolveField(() => [PostObject]) と明示することもできる
   @ResolveField()
   async posts(@Root() user: UserObject): Promise<Post[]> {
     return await this.#userService.getPosts(user.id)
