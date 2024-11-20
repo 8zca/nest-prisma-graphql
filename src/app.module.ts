@@ -5,6 +5,7 @@ import { join } from 'path'
 import { UserModule } from '@/account/infrastructure/nestjs-modules/user.module'
 import { TaskModule } from './task/task.module'
 import { PrismaModule } from './prisma.module'
+import { PostModule } from '@/collabo/infrastructure/nestjs-modules/post.module'
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { PrismaModule } from './prisma.module'
     }),
     PrismaModule,
     UserModule,
+    PostModule,
     TaskModule,
   ],
 })
