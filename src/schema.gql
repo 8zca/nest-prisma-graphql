@@ -2,24 +2,10 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Post {
-  id: Int!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  body: String
-  user: User!
-}
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
-type User {
+type UserObjectType {
   id: Int!
   email: String!
   name: String!
-  posts: [Post!]!
 }
 
 type Task {
@@ -31,6 +17,6 @@ type Task {
 }
 
 type Query {
-  users: [User!]!
+  users: [UserObjectType!]!
   tasks: [Task]!
 }
